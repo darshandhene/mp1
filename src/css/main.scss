@@ -1,1 +1,9 @@
-/* Your SCSS here. */
+// Entry point: only pulls in partials
+@use 'base';
+@use 'nav';
+@use 'hero';
+@use 'about';
+@use 'carousel';
+@use 'modal';
+@use 'video';
+@use 'footer';

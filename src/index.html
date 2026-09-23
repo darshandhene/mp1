@@ -4,10 +4,301 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
+        <meta name="description" content="Darshan Dhene: data engineer and full-stack developer, MS Information Management at UIUC.">
+        <title>Darshan Dhene | Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+        <header class="navbar" id="navbar">
+            <nav class="navbar__inner container" aria-label="Main">
+                <a href="#home" class="navbar__brand nav-link">Darshan<span class="navbar__dot">.</span></a>
+                <ul class="navbar__links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#work" class="nav-link">Experience</a></li>
+                    <li><a href="#video" class="nav-link">Video</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home" class="hero">
+                <div class="hero__content">
+                    <p class="hero__eyebrow">Hi, I'm</p>
+                    <h1 class="hero__title">Darshan Dhene</h1>
+                    <p class="hero__subtitle">MS Information Management @ UIUC · Full-stack developer</p>
+                    <a href="#about" class="btn nav-link">Explore my work</a>
+                </div>
+            </section>
+
+            <section id="about" class="about">
+                <div class="container">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about__intro">
+                        I build data platforms and the applications on top of them. After three years as a data engineer at
+                        Tata Consultancy Services, I'm now pursuing an MS in Information Management at the University of
+                        Illinois Urbana-Champaign (GPA 4.0), where I also work as a Course Assistant for CS 437: Internet of Things.
+                    </p>
+                    <div class="about__grid">
+                        <article class="about__col">
+                            <i class="fa-solid fa-database" aria-hidden="true"></i>
+                            <h3>Data Engineering</h3>
+                            <p>Production ETL/ELT pipelines, dimensional models and data quality checks that turn raw sources into business-ready datasets.</p>
+                            <ul class="tags">
+                                <li>Python</li><li>SQL</li><li>Airflow</li><li>dbt</li><li>Snowflake</li><li>PySpark</li>
+                            </ul>
+                        </article>
+                        <article class="about__col">
+                            <i class="fa-solid fa-code" aria-hidden="true"></i>
+                            <h3>Full-Stack Development</h3>
+                            <p>End-to-end applications, from requirements gathering to secure, tested features that teams rely on as their system of record.</p>
+                            <ul class="tags">
+                                <li>JavaScript</li><li>Django</li><li>PostgreSQL</li><li>Git</li><li>CI/CD</li>
+                            </ul>
+                        </article>
+                        <article class="about__col">
+                            <i class="fa-solid fa-brain" aria-hidden="true"></i>
+                            <h3>AI &amp; Retrieval</h3>
+                            <p>Knowledge graphs, vector search and LLM-powered agents that give AI tools relevant, cited context.</p>
+                            <ul class="tags">
+                                <li>RAG</li><li>MCP</li><li>pgvector</li><li>LanceDB</li><li>Kuzu</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="projects">
+                <div class="container">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="carousel" id="carousel">
+                        <button class="carousel__arrow carousel__arrow--prev" type="button" aria-label="Previous project">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <div class="carousel__viewport">
+                            <ul class="carousel__track">
+                                <li class="carousel__slide">
+                                    <i class="carousel__icon fa-solid fa-diagram-project" aria-hidden="true"></i>
+                                    <h3>Second Brain</h3>
+                                    <p class="carousel__subtitle">Local personal knowledge graph and retrieval system</p>
+                                    <p>
+                                        Ingests 1,654 files into 921 normalized documents, a 2,179-node knowledge graph and 6,224 vector
+                                        chunks. Content-addressed hashing recovered 158 previously discarded documents, and hybrid
+                                        vector/keyword search is exposed to AI tools through an MCP server.
+                                    </p>
+                                    <ul class="tags">
+                                        <li>Python</li><li>Kuzu</li><li>LanceDB</li><li>MCP</li><li>FastEmbed</li>
+                                    </ul>
+                                </li>
+                                <li class="carousel__slide">
+                                    <i class="carousel__icon fa-solid fa-briefcase" aria-hidden="true"></i>
+                                    <h3>JobPilot</h3>
+                                    <p class="carousel__subtitle">Agentic job search and application system</p>
+                                    <p>
+                                        Polls company applicant-tracking boards, scores each posting for fit with LLMs and syncs it to a
+                                        Notion board. Approvals flow back to Postgres as state transitions. The system does everything
+                                        up to the submit button.
+                                    </p>
+                                    <ul class="tags">
+                                        <li>Python</li><li>PostgreSQL</li><li>pgvector</li><li>LLMs</li><li>Notion API</li>
+                                    </ul>
+                                </li>
+                                <li class="carousel__slide">
+                                    <i class="carousel__icon fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+                                    <h3>Chicago Crime &amp; 311 Analytics</h3>
+                                    <p class="carousel__subtitle">NL-to-SQL analytics with RAG and vector indexing</p>
+                                    <p>
+                                        A 3-layer ETL/ELT pipeline over 260K+ records with incremental loading, schema contracts and
+                                        audit manifests, powering a natural-language question interface verified with SQL EXPLAIN.
+                                    </p>
+                                    <ul class="tags">
+                                        <li>Python</li><li>DuckDB</li><li>pgvector</li><li>SQL</li><li>Tableau</li>
+                                    </ul>
+                                </li>
+                                <li class="carousel__slide">
+                                    <i class="carousel__icon fa-solid fa-house-chimney" aria-hidden="true"></i>
+                                    <h3>Hestia AI</h3>
+                                    <p class="carousel__subtitle">Household operations web app</p>
+                                    <p>
+                                        A team-built Django application that helps households organize documents, inventory, shopping
+                                        needs and shared responsibilities in one place.
+                                    </p>
+                                    <ul class="tags">
+                                        <li>Django</li><li>Python</li><li>SQLite</li><li>HTML/CSS</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="carousel__arrow carousel__arrow--next" type="button" aria-label="Next project">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                        <div class="carousel__dots"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="work" class="work">
+                <div class="container">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="work__grid">
+                        <button class="work__card" type="button" data-modal-target="modal-holland">
+                            <i class="fa-solid fa-train" aria-hidden="true"></i>
+                            <h3>Holland LP</h3>
+                            <p class="work__role">Data Engineer</p>
+                            <p class="work__dates">May 2026 – Aug 2026</p>
+                        </button>
+                        <button class="work__card" type="button" data-modal-target="modal-big">
+                            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                            <h3>Business Intelligence Group</h3>
+                            <p class="work__role">Technical Consultant</p>
+                            <p class="work__dates">Jan 2026 – May 2026</p>
+                        </button>
+                        <button class="work__card" type="button" data-modal-target="modal-tcs">
+                            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+                            <h3>Tata Consultancy Services</h3>
+                            <p class="work__role">Data &amp; Analytics Engineer</p>
+                            <p class="work__dates">Jul 2022 – Aug 2025</p>
+                        </button>
+                        <button class="work__card" type="button" data-modal-target="modal-ca">
+                            <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                            <h3>Grainger College of Engineering</h3>
+                            <p class="work__role">Course Assistant, CS 437</p>
+                            <p class="work__dates">Sep 2026 – Present</p>
+                        </button>
+                        <button class="work__card" type="button" data-modal-target="modal-faces">
+                            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                            <h3>FACES Consulting</h3>
+                            <p class="work__role">Consultant</p>
+                            <p class="work__dates">Sep 2025 – Feb 2026</p>
+                        </button>
+                        <button class="work__card" type="button" data-modal-target="modal-onstorm">
+                            <i class="fa-solid fa-mountain" aria-hidden="true"></i>
+                            <h3>OnStorm Trekkers</h3>
+                            <p class="work__role">Co-Founder</p>
+                            <p class="work__dates">Aug 2018 – Jul 2020</p>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="video" class="video">
+                <div class="container">
+                    <h2 class="section-title">Watch</h2>
+                    <div class="video__wrapper">
+                        <!-- The <video> element is added in Chunk 4, once the video file is in src/assets/video/ -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <div class="container">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p>
+                        I'm looking for full-time data engineering and full-stack roles starting in 2027.
+                        If you're building something with data at its core, I'd love to hear about it.
+                    </p>
+                    <a class="btn" href="mailto:dhenedarshan@gmail.com">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <ul class="social-icons">
+                    <li><a href="https://github.com/darshandhene" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/darshan-dhene" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="mailto:dhenedarshan@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
+                </ul>
+                <p class="footer__copy">&copy; 2026 Darshan Dhene · Built with HTML, SCSS and vanilla JavaScript</p>
+            </div>
+        </footer>
+
+        <!-- Experience modals: one per card in #work -->
+        <div class="modal" id="modal-holland" role="dialog" aria-modal="true" aria-labelledby="modal-holland-title" hidden>
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <h3 id="modal-holland-title">Data Engineer · Holland LP</h3>
+                <p class="modal__meta">May 2026 – Aug 2026 · University Park, IL</p>
+                <ul class="modal__list">
+                    <li>Built a customer operations platform from scratch that became the team's system of record, consolidating customer, fleet, order and escalation data from 5 sources including Azure DevOps, Microsoft Graph and SharePoint.</li>
+                    <li>Replaced manual fleet tracking with an automated telemetry pipeline for 30 field pods (about 5,760 files daily) across five Class I railroads, with Bronze/Silver/Gold layers and star-schema models.</li>
+                    <li>Implemented incremental loads, idempotent upserts, 3-day primary-key reconciliation and an audit ledger for completeness and traceability.</li>
+                    <li>Delivered leadership's first per-customer view of account health, blending fleet uptime, escalation aging and satisfaction scoring.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-big" role="dialog" aria-modal="true" aria-labelledby="modal-big-title" hidden>
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <h3 id="modal-big-title">Technical Consultant · Business Intelligence Group (UIUC)</h3>
+                <p class="modal__meta">Jan 2026 – May 2026 · Champaign, IL</p>
+                <ul class="modal__list">
+                    <li>Built and maintained the end-to-end data pipeline for an NLP-based analytics system at an aviation company, using Airflow, dbt and Snowflake.</li>
+                    <li>Normalized unstructured chatbot messages, generated semantic embeddings and auto-clustered similar questions into topics with 76.3% cluster purity, saving about 5 hours of manual categorization each week.</li>
+                    <li>Caught a critical schema inconsistency across three source systems before it reached downstream reporting.</li>
+                    <li>Documented the architecture, which was adopted by 3 cross-functional teams.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-tcs" role="dialog" aria-modal="true" aria-labelledby="modal-tcs-title" hidden>
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <h3 id="modal-tcs-title">Data &amp; Analytics Engineer · Tata Consultancy Services</h3>
+                <p class="modal__meta">Jul 2022 – Aug 2025 · Banking</p>
+                <ul class="modal__list">
+                    <li>Built Azure Data Factory and Databricks ETL/ELT pipelines processing 2TB+ monthly from 8+ banking systems with Python and PySpark.</li>
+                    <li>Modeled star-schema warehouses in Snowflake and Azure Synapse, cutting reporting refreshes from minutes to seconds.</li>
+                    <li>Cut processing time by 40% by optimizing enterprise data pipelines on Azure.</li>
+                    <li>Reduced manual reconciliation effort by 60% with Power BI dashboards, and eliminated about 3% reconciliation inflation with cross-batch SQL deduplication.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-ca" role="dialog" aria-modal="true" aria-labelledby="modal-ca-title" hidden>
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <h3 id="modal-ca-title">Course Assistant, CS 437: Internet of Things · Grainger College of Engineering</h3>
+                <p class="modal__meta">Sep 2026 – Present · Champaign, IL</p>
+                <ul class="modal__list">
+                    <li>Support students in system design, networking and IoT architecture as they work through real-world implementation challenges.</li>
+                    <li>Evaluate assignments and give structured feedback on distributed systems, network communication and debugging approaches.</li>
+                    <li>Explain protocols and device communication in practical terms.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-faces" role="dialog" aria-modal="true" aria-labelledby="modal-faces-title" hidden>
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <h3 id="modal-faces-title">Consultant · FACES Consulting</h3>
+                <p class="modal__meta">Sep 2025 – Feb 2026 · Champaign, IL</p>
+                <ul class="modal__list">
+                    <li>Delivered an end-to-end engagement for an early-stage e-commerce startup covering market analysis, technical strategy and digital presence.</li>
+                    <li>Evaluated tools, platforms and architecture, and translated the client's brand goals into functional and technical requirements.</li>
+                    <li>Supported the design and launch of the client's website and produced roadmaps and stakeholder-ready presentations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-onstorm" role="dialog" aria-modal="true" aria-labelledby="modal-onstorm-title" hidden>
+            <div class="modal__dialog">
+                <button class="modal__close" type="button" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <h3 id="modal-onstorm-title">Co-Founder · OnStorm Trekkers</h3>
+                <p class="modal__meta">Aug 2018 – Jul 2020 · Pune, India</p>
+                <ul class="modal__list">
+                    <li>Co-founded and scaled a trekking initiative from zero initial investment to 100+ treks with 2,500+ participants.</li>
+                    <li>Led logistics, budgeting, team coordination and on-ground safety in challenging outdoor environments.</li>
+                    <li>Recruited, trained and mentored trek leaders, and grew the community organically through social media.</li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>

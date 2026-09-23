@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Media query for a named breakpoint from $breakpoints
+@mixin respond-to($bp) {
+  @media (max-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin flex-center($dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin section-padding {
+  padding: 6rem 0;
+
+  @include respond-to(mobile) {
+    padding: 4rem 0;
+  }
+}
+
+@mixin card {
+  border-radius: $radius;
+  border: 1px solid $color-border;
+  background: $color-surface;
+}

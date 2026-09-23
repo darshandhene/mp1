@@ -1,0 +1,28 @@
+// Colors
+$color-bg: #0f1115;
+$color-surface: #1a1d24;
+$color-text: #e8e8ea;
+$color-muted: #9aa0aa;
+$color-accent: #ff7a59;
+$color-border: rgba($color-text, 0.1);
+
+// Typography
+$font-heading: 'Poppins', sans-serif;
+$font-body: 'Inter', sans-serif;
+
+// Layout
+$nav-height-large: 96px;
+$nav-height-small: 60px;
+$container-max: 1140px;
+$radius: 12px;
+
+$breakpoints: (
+  tablet: 1024px,
+  mobile: 768px
+);
+
+// CSS custom properties, available to plain CSS and JS
+:root {
+  --accent: #{$color-accent};
+  --nav-height: #{$nav-height-large};
+}
