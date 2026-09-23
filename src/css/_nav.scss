@@ -1,1 +1,107 @@
-// Styles added in a later chunk
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: $nav-height-large;
+  background: rgba($color-bg, 0.6);
+  backdrop-filter: blur(8px);
+  transition: height 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+
+  &__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: 700;
+    transition: font-size 0.3s ease;
+  }
+
+  &__dot {
+    color: $color-accent;
+  }
+
+  &__links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+
+    .nav-link {
+      font-size: 1.2rem;
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    transition: font-size 0.3s ease, color 0.2s ease;
+
+    // Underline that grows under the active or hovered link
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: $color-accent;
+      transition: width 0.3s ease;
+    }
+
+    &:hover,
+    &--active {
+      color: $color-accent;
+    }
+
+    &--active::after {
+      width: 100%;
+    }
+  }
+
+  // The brand is a nav link for smooth scrolling, but never gets the indicator
+  .navbar__brand {
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &--shrunk {
+    height: $nav-height-small;
+    background: rgba($color-bg, 0.95);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+
+    .navbar__brand {
+      font-size: 1.4rem;
+    }
+
+    .navbar__links .nav-link {
+      font-size: 0.95rem;
+    }
+  }
+
+  @include respond-to(mobile) {
+    &__links {
+      gap: 1.25rem;
+    }
+
+    &__links .nav-link {
+      font-size: 1.05rem;
+    }
+
+    &--shrunk .navbar__links .nav-link {
+      font-size: 0.875rem;
+    }
+  }
+}

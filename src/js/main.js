@@ -1,1 +1,5 @@
-/* Page behaviour: modules are imported and initialised here from Chunk 2 on. */
+import { initNav } from './nav.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNav();
+});

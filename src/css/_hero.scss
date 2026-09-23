@@ -1,1 +1,67 @@
-// Styles added in a later chunk
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  // Fill the viewport; flex keeps the content centered however the section resizes
+  min-height: 100vh;
+  @include flex-center(column);
+  padding: $nav-height-large 1.5rem; // symmetric, so the content sits at the true center
+  background:
+    linear-gradient(
+      100deg,
+      rgba($color-bg, 0.92) 0%,
+      rgba($color-bg, 0.78) 55%,
+      rgba($color-bg, 0.35) 100%
+    ),
+    url('../assets/images/hero.jpg') 80% center / cover no-repeat;
+  background-attachment: fixed;
+
+  // Narrower screens crop the photo; shift it so the person stays beside the text
+  @include respond-to(tablet) {
+    background-position: center, 65% center;
+  }
+
+  &__content {
+    max-width: 760px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+
+    // Staggered fade-in on load
+    > * {
+      opacity: 0;
+      animation: fadeInUp 0.9s ease forwards;
+    }
+  }
+
+  &__eyebrow {
+    color: $color-accent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0.5rem 0 1rem;
+    font-size: clamp(2.75rem, 7vw, 5rem);
+    animation-delay: 0.15s;
+  }
+
+  &__subtitle {
+    margin-bottom: 2.25rem;
+    color: $color-text;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    animation-delay: 0.35s;
+  }
+
+  .btn {
+    animation-delay: 0.55s;
+    text-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__content > * {
+    opacity: 1;
+    animation: none;
+  }
+}
