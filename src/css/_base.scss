@@ -31,6 +31,11 @@ a {
   text-decoration: none;
 }
 
+::selection {
+  background: var(--accent);
+  color: $color-bg;
+}
+
 h1,
 h2,
 h3 {

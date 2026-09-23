@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 .video {
-  background: $color-surface;
+  background: $color-bg;
 
   &__wrapper {
     max-width: 900px;

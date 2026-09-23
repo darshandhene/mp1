@@ -104,4 +104,26 @@
       font-size: 0.875rem;
     }
   }
+
+  @include respond-to(small) {
+    &__brand {
+      font-size: 1.4rem;
+    }
+
+    &__links {
+      gap: 0.4rem;
+    }
+
+    &__links .nav-link {
+      font-size: 0.75rem;
+    }
+
+    &--shrunk .navbar__brand {
+      font-size: 1.1rem;
+    }
+
+    &--shrunk .navbar__links .nav-link {
+      font-size: 0.7rem;
+    }
+  }
 }

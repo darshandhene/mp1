@@ -1,0 +1,91 @@
+This is the assignment i have to submit. Can I use claude code or codex. If yes how will i submit their chatlogs along with their source code
+
+
+
+
+
+
+Worked for 1m 13s
+
+
+
+Yes—you may use either Claude Code or Codex. The assignment explicitly permits LLM-generated code, but you must:
+1. Submit the complete chat logs with your source code.
+2. Disclose every AI tool and other source you used.
+3. Answer the LLM survey questions in the grading form.
+The safest submission structure is:
+mp1/
+├── src/
+├── chatlogs/
+│   ├── codex-session.pdf
+│   └── claude-code-session.txt
+├── AI_USAGE.md
+└── README.md
+For Claude Code, run:
+/export chatlogs/claude-code-session.txt
+Claude Code officially supports /export [filename] for exporting the current conversation as plain text. (Claude Code documentation)
+For Codex:
+- Use the task’s Share option to create an immutable link.
+- Save or print the displayed conversation as chatlogs/codex-session.pdf.
+- Put both the PDF and share link in AI_USAGE.md.
+- If your version offers a transcript-export option, exporting directly to Markdown or text is also acceptable.
+Example AI_USAGE.md:
+# AI Usage Disclosure
+
+## Tools used
+
+- OpenAI Codex
+- Claude Code
+
+## Chat logs
+
+- [Codex session](chatlogs/codex-session.pdf)
+- [Claude Code session](chatlogs/claude-code-session.txt)
+- Codex share URL: <paste-link-here>
+
+## How AI was used
+
+The tools helped generate initial HTML, SCSS, and JavaScript,
+debug responsive behavior, and review the implementation. I reviewed,
+tested, and modified the generated code before submission.
+
+## Other sources
+
+- Font Awesome: <URL>
+- Images: <URLs and attribution>
+- Any tutorials or documentation consulted: <URLs>
+Then commit everything:
+git add chatlogs AI_USAGE.md
+git commit -m "Add AI usage disclosure and chat logs"
+git push
+Important cautions:
+- Keep the entire relevant conversation, including your prompts—not only the AI’s final answers.
+- Check exported logs for passwords, API keys, personal information, or unrelated private files before publishing the repository.
+- Do not let the tools introduce React, Bootstrap, jQuery, or other libraries; the assignment prohibits them.
+- Do not use inline CSS or inline script tags.
+- Make sure you understand and can explain the submitted code during your video.
+- Because the instructions do not prescribe an exact chat-log format, ask on Piazza whether a share link alone is accepted. Committing a PDF/text copy in chatlogs/ is the safer choice.
+
+
+Check if this is according to grading criteria and satisfy all the requirements.
+
+
+
+
+
+
+Worked for 5m 4s
+
+
+
+The site already covers all 16 functional requirements. I found two submission-critical gaps:
+- llm_logs.csv contains only template placeholders, not actual AI chat logs.
+- External resources—Font Awesome, Google Fonts, and the stock video—are not declared as required by Rule 2.
+Proposed bounded changes:
+- Preserve the existing design and functionality.
+- Replace the placeholder AI-log file with a proper disclosure and real Codex chat reference.
+- Add source/asset attribution documentation.
+- Improve modal keyboard focus, carousel accessibility state, and reduced-motion handling for code-quality points.
+- Rebuild and test every required resolution plus navbar, carousel, modal, video, and bottom-position highlighting.
+One attribution will remain labeled accurately but generically unless you know the original stock-video page; the local file only suggests it came from Pexels.
+Do you approve this design so I can implement and verify it?

@@ -5,7 +5,7 @@
   // Fill the viewport; flex keeps the content centered however the section resizes
   min-height: 100vh;
   @include flex-center(column);
-  padding: $nav-height-large 1.5rem; // symmetric, so the content sits at the true center
+  padding: var(--nav-height) 1.5rem; // symmetric, so the content sits at the true center
   background:
     linear-gradient(
       100deg,

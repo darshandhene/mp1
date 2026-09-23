@@ -10,6 +10,10 @@ $carousel-arrow-inset-tablet: 8px; // .carousel__arrow offset from the edge at <
 $carousel-arrow-clearance: 12px; // breathing room between the inset arrow and slide text
 $carousel-slide-padding-x-inset: $carousel-arrow-inset-tablet + $carousel-arrow-size + $carousel-arrow-clearance;
 
+.projects {
+  background: $color-bg;
+}
+
 .carousel {
   position: relative;
   max-width: 900px;

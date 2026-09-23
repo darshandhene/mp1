@@ -30,7 +30,16 @@ function updateActiveLink() {
 
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 
+let scrollAnimationId = null;
+
 function smoothScrollTo(targetY) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.scrollTo(0, targetY);
+    return;
+  }
+
+  if (scrollAnimationId !== null) cancelAnimationFrame(scrollAnimationId);
+
   const startY = window.scrollY;
   const distance = targetY - startY;
   let startTime = null;
@@ -39,10 +48,14 @@ function smoothScrollTo(targetY) {
     if (startTime === null) startTime = now;
     const progress = Math.min((now - startTime) / SCROLL_DURATION, 1);
     window.scrollTo(0, startY + distance * easeInOutCubic(progress));
-    if (progress < 1) requestAnimationFrame(step);
+    if (progress < 1) {
+      scrollAnimationId = requestAnimationFrame(step);
+    } else {
+      scrollAnimationId = null;
+    }
   }
 
-  requestAnimationFrame(step);
+  scrollAnimationId = requestAnimationFrame(step);
 }
 
 function onNavClick(event) {

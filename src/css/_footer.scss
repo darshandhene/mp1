@@ -1,10 +1,14 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-.contact p {
-  color: $color-muted;
-  max-width: 600px;
-  margin: 0 auto 2rem;
+.contact {
+  background: $color-surface;
+
+  p {
+    color: $color-muted;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
 }
 
 .footer {
@@ -29,6 +33,7 @@
   list-style: none;
 
   a {
+    display: inline-block;
     font-size: 1.6rem;
     color: $color-muted;
     transition: color 0.2s, transform 0.2s;
