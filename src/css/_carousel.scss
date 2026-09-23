@@ -1,1 +1,136 @@
-// Styles added in a later chunk
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Shared geometry so the arrow's centering offset and the slide's clearance
+// padding stay derived from the same numbers instead of magic literals.
+$carousel-dots-gap: 1rem; // .carousel__dots margin-top
+$carousel-dot-size: 10px; // .carousel__dot width/height
+$carousel-arrow-size: 48px;
+$carousel-arrow-inset-tablet: 8px; // .carousel__arrow offset from the edge at <=tablet
+$carousel-arrow-clearance: 12px; // breathing room between the inset arrow and slide text
+$carousel-slide-padding-x-inset: $carousel-arrow-inset-tablet + $carousel-arrow-size + $carousel-arrow-clearance;
+
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+
+  &__viewport {
+    overflow: hidden;
+    border-radius: $radius;
+  }
+
+  &__track {
+    display: flex;
+    align-items: stretch;
+    list-style: none;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    background: $color-surface;
+    border-radius: $radius;
+    padding: 3rem 4.5rem;
+    text-align: center;
+
+    // Horizontal padding at <=tablet must clear the inset arrows (see
+    // $carousel-slide-padding-x-inset above); only the vertical padding shrinks further.
+    @include respond-to(tablet) {
+      padding: 2.5rem $carousel-slide-padding-x-inset;
+    }
+
+    @include respond-to(mobile) {
+      padding: 2rem $carousel-slide-padding-x-inset;
+    }
+
+    h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    p {
+      color: $color-muted;
+    }
+
+    .tags {
+      margin-top: 1rem;
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 auto 1rem;
+    font-size: 2.5rem;
+    color: $color-accent;
+  }
+
+  &__subtitle {
+    color: $color-accent;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  &__arrow {
+    position: absolute;
+    // Offset above 50% by half the height of what sits below the viewport
+    // inside .carousel (the dots row's top margin + a dot's own height),
+    // so the arrow stays centered on the card, not on .carousel as a whole.
+    top: calc(50% - (#{$carousel-dots-gap} + #{$carousel-dot-size}) / 2);
+    transform: translateY(-50%);
+    z-index: 2;
+    width: $carousel-arrow-size;
+    height: $carousel-arrow-size;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    background: rgba($color-bg, 0.7);
+    color: $color-text;
+    font-size: 1.2rem;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $color-accent;
+    }
+
+    &--prev {
+      left: -24px;
+    }
+
+    &--next {
+      right: -24px;
+    }
+
+    @include respond-to(tablet) {
+      &--prev {
+        left: $carousel-arrow-inset-tablet;
+      }
+
+      &--next {
+        right: $carousel-arrow-inset-tablet;
+      }
+    }
+  }
+
+  &__dots {
+    @include flex-center;
+    gap: 0.5rem;
+    margin-top: $carousel-dots-gap;
+  }
+
+  &__dot {
+    width: $carousel-dot-size;
+    height: $carousel-dot-size;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    background: $color-muted;
+    transition: background 0.2s, transform 0.2s;
+
+    &--active {
+      background: $color-accent;
+      transform: scale(1.3);
+    }
+  }
+}
